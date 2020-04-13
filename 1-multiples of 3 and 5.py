@@ -17,13 +17,13 @@ def ap_sum(number, threshold):
     n = (threshold - 1) // a
     return (n / 2) * (2 * a + (n - 1) * d)
 
-i = 0
-total = 0
-while (i < 1000):
-    if i%3 == 0 or i%5 == 0:
-        total += i
-    i += 1
+# i = 0
+# total = 0
+# while (i < 1000):
+#     if i%3 == 0 or i%5 == 0:
+#         total += i
+#     i += 1
 
-print(total)
+# print(total)
 
-# print(ap_sum(3, 1000) + ap_sum(5, 1000))
+print(ap_sum(3, 1000) + ap_sum(5, 1000) - ap_sum(15, 1000))
