@@ -1,2 +1,1 @@
-
-        factors.append(2)
+a*b

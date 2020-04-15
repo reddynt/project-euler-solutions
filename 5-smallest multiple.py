@@ -8,24 +8,21 @@ Problem 5
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 """
 
-import math
 from functools import reduce
 
-def get_factors(x):
-    factors = []
-    if x%2 == 0:
-        factors.append(2)
-    for i in range(3, x, 2):
-        if x%i == 0:
-            factors.append(i)
-    return factors
+def gcd(n):
+    for i in range(n//2, 0, -1):
+        if n%i == 0:
+            return i
+    return n
 
+numbers = [1, 1]
+for i in range(1, 21):
+    smallest_number = reduce(lambda x, y: x*y, numbers)
+    if smallest_number%i != 0:
+        greatest_divisor = gcd(i)
+        numbers.append(i//greatest_divisor)
 
-factors_set = set()
-for i in range(2, 21):
-    factors = get_factors(i)
-    print(factors)
-    factors_set = factors_set.union(set(factors))
+print(numbers)
 
-# print(reduce(lambda x, y: x*y, all_primes))
-print(factors_set)
+print(reduce(lambda x, y: x*y, numbers))
